@@ -252,7 +252,9 @@ h1, h2, h3, h4, h5,
   @media (max-width: 991.98px) {
     .hover-bg-enlarge .bg-image-md-height {
       height: 300px !important; } }
-
+.main-menu a{
+  font-size: 1.2rem !important;
+}
 .bg-image {
   background-size: cover;
   background-position: center center;
@@ -823,6 +825,7 @@ h1, h2, h3, h4, h5,
       opacity: 1;
       visibility: visible; }
 
+
 .site-mobile-menu .site-mobile-menu-body ul:first-child {
   margin-bottom: 20px !important;
   float: left; }
@@ -878,7 +881,7 @@ h1, h2, h3, h4, h5,
     background: rgba(0, 0, 0, 0.4);
     z-index: 1; }
   .site-section-hero, .site-section-hero .row {
-    height: 90vh;
+    height: 100vh;
     min-height: 500px;
     z-index: 2;
     position: relative; }
