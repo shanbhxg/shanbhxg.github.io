@@ -151,7 +151,6 @@ body {
 }
 .main-content {
   margin-left: 70px;
-  padding: 40px;
   overflow-y: auto;
   height: 100vh;
   width: calc(100vw - 70px);

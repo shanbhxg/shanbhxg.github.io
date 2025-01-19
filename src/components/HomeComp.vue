@@ -159,4 +159,23 @@ p.tagline {
     transform: translateY(0);
   }
 }
+
+/* mobile-support */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3.5em;
+  }
+
+  p.tagline {
+    font-size: 1.2em;
+  }
+
+  .contact-info {
+    gap: 20px;
+  }
+
+  .contact-info a {
+    font-size: 1.8em;
+  }
+}
 </style>
