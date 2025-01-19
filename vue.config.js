@@ -1,6 +1,7 @@
 const { defineConfig } = require('@vue/cli-service');
 
 module.exports = defineConfig({
+  publicPath: '/',  // Replace this with your desired base path
   transpileDependencies: true,
   chainWebpack(config) {
     // Add rule to handle .md files as raw text
