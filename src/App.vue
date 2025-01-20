@@ -14,7 +14,7 @@
         </li>
         <li class="nav-item">
           <router-link to="/projects" class="nav-link" active-class="active" exact title="Projects">
-            <i class="fas fa-briefcase"></i>
+            <i class="fas fa-file-code"></i>
           </router-link>
         </li>
         <li class="nav-item">
@@ -146,9 +146,10 @@ body {
   height: 4px;
   width: 30px;
   margin: 4px 0;
-  background-color: #333;
+  background-color: #ffffff;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
+
 .main-content {
   margin-left: 70px;
   overflow-y: auto;
@@ -204,6 +205,7 @@ p {
     flex-direction: row;
     justify-content: space-between;
     padding: 10px 0;
+    font-size: 0.7em;
   }
 
   .navbar-nav {
@@ -216,6 +218,7 @@ p {
     width: 100%;
     background-color: #f7f7f7;
     transform: translateX(-100%);
+    padding: 10px;
   }
 
   .navbar-nav.active {
@@ -235,6 +238,13 @@ p {
     margin-left: 0;
     width: 100%;
     padding: 20px;
+  }
+
+  .navbar-nav .nav-link::after {
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    font-size: 3mm !important;
   }
 
   h1 {

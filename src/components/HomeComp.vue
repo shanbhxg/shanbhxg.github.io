@@ -4,19 +4,19 @@
       <h1>{{ name }}</h1>
       <p class="tagline">Full-Stack Developer</p>
       <div class="contact-info">
-        <a href="mailto:shanbhxg@gmail.com" target="_blank">
+        <a href="mailto:shanbhxg@gmail.com" target="_blank" exact title="Email">
           <i class="fas fa-envelope"></i>
         </a>
-        <a href="https://linkedin.com/in/deeptishanbhag" target="_blank">
+        <a href="https://linkedin.com/in/deeptishanbhag" target="_blank" exact title="LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
-        <a href="https://github.com/shanbhxg" target="_blank">
+        <a href="https://github.com/shanbhxg" target="_blank" exact title="GitHub">
           <i class="fab fa-github"></i>
         </a>
-        <a href="https://medium.com/@shanbhxg" target="_blank">
+        <a href="https://medium.com/@shanbhxg" target="_blank" exact title="Medium">
           <i class="fab fa-medium"></i>
         </a>
-        <a href="" target="_blank">
+        <a href="" target="_blank" exact title="Resume">
           <i class="fas fa-address-card"></i>
         </a>
       </div>
@@ -100,6 +100,7 @@ p.tagline {
   transform: scale(1.2);
   color: #ff6b6b;
 }
+
 
 .mesh-background {
   position: absolute;
