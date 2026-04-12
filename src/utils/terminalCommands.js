@@ -1,4 +1,3 @@
-// Available commands and their responses
 const commands = {
   help: () => {
     return `
@@ -20,9 +19,9 @@ const commands = {
     return `
       <span class="keyword">const</span> <span class="variable">developer</span> = {
         <br/>&nbsp;&nbsp;<span class="string">"name"</span>: <span class="string">"Deepti Shanbhag"</span>,
-        <br/>&nbsp;&nbsp;<span class="string">"title"</span>: <span class="string">"Graduate Engineer Trainee"</span>,
+        <br/>&nbsp;&nbsp;<span class="string">"title"</span>: <span class="string">"Graduate Engineer Trainee (P1)"</span>,
         <br/>&nbsp;&nbsp;<span class="string">"location"</span>: <span class="string">"Bengaluru, KA"</span>,
-        <br/>&nbsp;&nbsp;<span class="string">"bio"</span>: <span class="string">"I'm a passionate web developer with a strong focus on creating intuitive and efficient web applications. I love solving complex problems and turning ideas into reality through code."</span>,
+        <br/>&nbsp;&nbsp;<span class="string">"bio"</span>: <span class="string">"I'm a passionate web developer and AWS certified cloud practitioner. I love solving problems and turning ideas into reality through code."</span>,
         <br/>&nbsp;&nbsp;<span class="string">"interests"</span>: [<span class="string">"Web Development"</span>, <span class="string">"Machine Learning"</span>, <span class="string">"Jazz"</span>, <span class="string">"Literary Fiction"</span>]
       <br/>};
     `;
@@ -37,7 +36,6 @@ const commands = {
           <span class="string">"JavaScript"</span>, 
           <span class="string">"HTML"</span>, 
           <span class="string">"CSS"</span>, 
-          <span class="string">"Java"</span>, 
           <span class="string">"C"</span>
         ],
         <br/>&nbsp;&nbsp;<span class="string">"toolsAndTechnologies"</span>: [
@@ -57,6 +55,7 @@ const commands = {
           <span class="string">"PyTorch"</span>, 
           <span class="string">"Flask"</span>, 
           <span class="string">"Figma"</span>
+          <span class="string">"Django"</span>
         ],
         <br/>&nbsp;&nbsp;<span class="string">"languages"</span>: [
           <span class="string">"English"</span>, 
@@ -81,7 +80,7 @@ const commands = {
         <br/>&nbsp;&nbsp;{
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"name"</span>: <span class="string">"SOMNAI"</span>,
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"description"</span>: <span class="string">"Full stack dream journal website that leverages AI to analyze dreams based on symbolism and psychological theories"</span>
-        <br/>&nbsp;&nbsp;}
+        <br/>&nbsp;&nbsp;},
         <br/>&nbsp;&nbsp;{
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"name"</span>: <span class="string">"CROSSWRD"</span>,
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"description"</span>: <span class="string">"A Vue.js website that generates crossword puzzles with clues fetched from an API."</span>,
@@ -91,8 +90,12 @@ const commands = {
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"description"</span>: <span class="string">"Personalized job recommendation system using modified swarm optimization algorithm (ABC)."</span>,
         <br/>&nbsp;&nbsp;},
         <br/>&nbsp;&nbsp;{
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"name"</span>: <span class="string">"AMALGAM"</span>,
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"description"</span>: <span class="string">"A nostalgic single-player video game archive coded using the MERN stack."</span>,
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"name"</span>: <span class="string">"KADAMBARI"</span>,
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"description"</span>: <span class="string">"A book tracking website that lets users search for books (open library), log their reading history with notes and "shelf" into categories, and maintain a personal diary with analytics."</span>,
+        <br/>&nbsp;&nbsp;},
+        <br/>&nbsp;&nbsp;{
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"name"</span>: <span class="string">"CINEMMA"</span>,
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"description"</span>: <span class="string">"A movie diary app where users can search films (tmdb), log what they’ve watched and when, and keep track of their thoughts over time (along with charts and other analytics)."</span>,
         <br/>&nbsp;&nbsp;},
         <br/>&nbsp;&nbsp;{
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"name"</span>: <span class="string">"CJ HELPER"</span>,
@@ -163,22 +166,17 @@ const commands = {
   },
 
   resume: () => {
-    window.open("https://drive.google.com/file/d/11zISwjX0pWpKV4a3-Pk-LMciEPf6W9nR/view?usp=drive_link", "_blank");
+    window.open("https://drive.google.com/file/d/17a7Tt6iTZN4OoKxfICtaetvBpSCuOReJ/view?usp=drive_link", "_blank");
     return `
       <span class="comment">// Redirecting to resume.pdf...</span>
     `;
   },
 };
 
-// Handle command input
 export const handleCommand = (input) => {
   const command = input.trim().toLowerCase();
-  
-  // Check if command exists
   if (commands[command]) {
     return commands[command]();
   }
-  
-  // Handle unknown commands
   return `Command not found: ${command}. Type "help" to see available commands.`;
 };

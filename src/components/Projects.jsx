@@ -10,6 +10,20 @@ const Projects = () => {
       demo: 'https://dre-ams.vercel.app/'
     },
     {
+      title: 'KADAMBARI',
+      description: 'A book tracking website that lets users search for books (open library), log their reading history with notes and "shelf" into categories, and maintain a personal diary with analytics.',
+      tags: ['React', 'Firebase', 'Open Library API'],
+      github: 'https://github.com/shanbhxg/kadambari',
+      demo: 'https://kadambari.vercel.app/'
+    },
+    {
+      title: 'CINEMMA',
+      description: 'A movie diary app where users can search films (tmdb), log what they’ve watched and when, and keep track of their thoughts over time (with analytics).',
+      tags: ['React', 'Firebase', 'TMDb API'],
+      github: 'https://github.com/shanbhxg/cinemma',
+      demo: 'https://cinemma.vercel.app/'
+    },
+    {
       title: 'CROSSWRD',
       description: 'VueJS website that generates crossword puzzles with clues fetched from an API.',
       tags: ['VueJS', 'Python', 'API'],

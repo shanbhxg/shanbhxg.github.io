@@ -1,9 +1,8 @@
 import React from 'react';
 
-// Function to calculate months between two dates
 const calculateMonths = (startDate) => {
   const start = new Date(startDate);
-  const now = new Date(); // Get current UTC time
+  const now = new Date();
 
   const yearsDiff = now.getFullYear() - start.getFullYear();
   const monthsDiff = now.getMonth() - start.getMonth();
@@ -11,13 +10,12 @@ const calculateMonths = (startDate) => {
   return yearsDiff * 12 + monthsDiff;
 };
 
-// Experience data
 const experiences = [
   {
     title: 'Graduate Engineer Trainee',
     company: 'Pratt and Whitney',
     date: `Jul 2024 - Present`,
-    duration: `${calculateMonths('2024-07-01')} months`, // Dynamically calculated
+    duration: `${calculateMonths('2024-07-01')} months`, 
     description: [
       'Collaborated with data scientists to build a VueJS website for complex data workflows, allowing users to interact meaningfully with data via drag-and-drop interfaces, various visualizations, and flowcharts.',
       'Worked with after-market maintenance engineering team to build a full-stack application using VueJS, AWS SAM, Lambda, and API Gateway, along with creating extensive documentation using Vitepress.'
@@ -28,7 +26,7 @@ const experiences = [
     title: 'Intern',
     company: 'Pratt and Whitney',
     date: 'Jan 2024 - Jul 2024',
-    duration: '6 months', // Static since it has an end date
+    duration: '6 months', 
     description: [
       'Developed a desktop application used by global managers, with interactive data visualizations and LDAP authentication, packaging them into executables, and managing global auto-updates via Github Releases to ensure seamless distribution and maintenance.',
       'Developed web and desktop applications using VueJS, Electron, SQL, and ReactJS in an Agile environment.'
