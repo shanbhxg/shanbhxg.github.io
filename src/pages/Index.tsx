@@ -16,12 +16,25 @@ const files = [
 ];
 
 const Index = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 760);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 760);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  useEffect(() => {
+    if (isMobile) {
+      setOpenFiles(files.map((file) => file.id));
+    }
+  }, [isMobile]);
   const initialFile = files.some((file) => file.id === window.location.hash.slice(1))
     ? window.location.hash.slice(1)
     : 'about';
   const [activeFile, setActiveFile] = useState(initialFile);
-  const [openFiles, setOpenFiles] = useState([initialFile]);
-
+  const [openFiles, setOpenFiles] = useState(
+    window.innerWidth <= 760 ? files.map((file) => file.id) : [initialFile]
+  );
   const openFile = useCallback((id, updateHistory = true) => {
     if (!files.some((file) => file.id === id)) return;
     setOpenFiles((current) => current.includes(id) ? current : [...current, id]);
@@ -30,6 +43,7 @@ const Index = () => {
   }, []);
 
   const closeFile = useCallback((id) => {
+    if (isMobile) return;
     setOpenFiles((current) => {
       if (current.length === 1) return current;
       const nextOpenFiles = current.filter((file) => file !== id);
@@ -41,7 +55,7 @@ const Index = () => {
       }
       return nextOpenFiles;
     });
-  }, [activeFile]);
+  }, [activeFile, isMobile]);
 
   useEffect(() => {
     const handlePopState = () => {
@@ -116,8 +130,7 @@ const Index = () => {
               return (
                 <div className={`editor-tab ${activeFile === id ? 'active' : ''}`} key={id}>
                   <button type="button" role="tab" aria-selected={activeFile === id} tabIndex={activeFile === id ? 0 : -1} onClick={() => openFile(id)}>{file.label}</button>
-                  <button type="button" className="editor-tab-close" aria-label={`Close ${file.label}`} onClick={() => closeFile(id)} disabled={openFiles.length === 1}>×</button>
-                </div>
+                  {!isMobile && ( <button type="button" className="editor-tab-close" aria-label={`Close ${file.label}`} onClick={() => closeFile(id)} disabled={openFiles.length === 1} > × </button> )}                </div>
               );
             })}
           </div>
