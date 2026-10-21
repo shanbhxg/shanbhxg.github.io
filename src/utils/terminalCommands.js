@@ -166,7 +166,7 @@ const commands = {
   },
 
   resume: () => {
-    window.open("https://drive.google.com/file/d/17a7Tt6iTZN4OoKxfICtaetvBpSCuOReJ/view?usp=drive_link", "_blank");
+    window.open("https://drive.google.com/file/d/1BFQ8JkoeLdjj6r2jigBggXhNTZthB8uM/view?usp=sharing", "_blank");
     return `
       <span class="comment">// Redirecting to resume.pdf...</span>
     `;

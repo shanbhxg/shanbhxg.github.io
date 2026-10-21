@@ -10,6 +10,13 @@ const Projects = () => {
       demo: 'https://dre-ams.vercel.app/'
     },
     {
+      title: 'TOADSTOOL',
+      description: 'A personal productivity website for managing daily tasks, tracking habits, and organising goals with a customisable dashboard.',
+      tags: ['Vue.js', 'Firebase', 'TypeScript'],
+      github: 'https://github.com/shanbhxg/toadstool',
+      demo: 'https://toadstool.vercel.app/'
+    },
+    {
       title: 'KADAMBARI',
       description: 'A book tracking website that lets users search for books (open library), log their reading history with notes and "shelf" into categories, and maintain a personal diary with analytics.',
       tags: ['React', 'Firebase', 'Open Library API'],
@@ -37,28 +44,6 @@ const Projects = () => {
       github: 'https://www.springer.com/series/15179',
       demo: 'https://apidae-jobrecsys.anvil.app/'
     },
-    {
-      title: 'AMALGAM',
-      description: 'Nostalgic single player video game archive coded using MERN Stack.',
-      tags: ['MERN Stack', 'MongoDB', 'Express', 'React', 'Node.js'],
-      github: 'https://github.com/shanbhxg/amalgam',
-      demo: 'https://github.com/shanbhxg/amalgam'
-    },
-    {
-      title: 'CHRONOSPHERE',
-      description: 'A BlueSky dashboard.',
-      tags: ['Dashboard', 'React', 'BlueSky'],
-      github: 'https://github.com/shanbhxg/chronosphere',
-      demo: 'https://github.com/shanbhxg/chronosphere'
-    },
-    {
-      title: 'CJ HELPER',
-      description: "A virtual cork-board to help you solve Cain's Jawbone.",
-      tags: ['React', 'MERN Stack', 'Web Application'],
-      github: 'https://github.com/shanbhxg/cains-jawbone',
-      demo: 'https://cains-jawbone.vercel.app/'
-    },
-    
     
   ];
 
