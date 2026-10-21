@@ -1,61 +1,34 @@
+import React, { useState } from 'react';
 
-import React, { useState, useEffect } from 'react';
+const links = [
+  { id: 'about', label: 'about.jsx', icon: 'JS' },
+  { id: 'skills', label: 'skills.json', icon: '{}' },
+  { id: 'experience', label: 'experience.tsx', icon: 'TS' },
+  { id: 'projects', label: 'projects.jsx', icon: 'JS' },
+  { id: 'miscellaneous', label: 'miscellaneous.jsx', icon: 'JS' },
+  { id: 'contact', label: 'contact.json', icon: '{}' },
+];
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   return (
-    <nav className={`navbar ${scrolled ? 'glass' : ''}`}>
-      <div className="navbar-container container">
-        <a href="#" className="navbar-logo">
-          <span className="variable">deepti</span><span className="function">Shanbhag</span>
+    <nav className="navbar vscode-navbar" aria-label="Portfolio navigation">
+      <div className="navbar-container">
+        <a href="#about" className="navbar-logo" onClick={() => setIsMenuOpen(false)}>
+          <span className="navbar-logo-mark" aria-hidden="true">⌘</span>
+          <span>deepti-portfolio</span>
         </a>
-        
-        <button className="menu-toggle" onClick={toggleMenu}>
-          ☰
+        <button className="menu-toggle" type="button" onClick={() => setIsMenuOpen((open) => !open)} aria-expanded={isMenuOpen} aria-label="Toggle navigation">
+          {isMenuOpen ? '×' : '☰'}
         </button>
-        
         <div className={`navbar-links ${isMenuOpen ? 'active' : ''}`}>
-          <a href="#about" className="navbar-link" onClick={closeMenu}>
-            <span className="keyword">about</span>
-          </a>
-          <a href="#skills" className="navbar-link" onClick={closeMenu}>
-            <span className="function">skills</span>
-          </a>
-          <a href="#projects" className="navbar-link" onClick={closeMenu}>
-            <span className="variable">projects</span>
-          </a>
-          <a href="#experience" className="navbar-link" onClick={closeMenu}>
-            <span className="class">experience</span>
-          </a>
-          <a href="#contact" className="navbar-link" onClick={closeMenu}>
-            <span className="string">contact</span>
-          </a>
+          {links.map((link) => (
+            <a key={link.id} href={`#${link.id}`} className="navbar-link" onClick={() => setIsMenuOpen(false)}>
+              <span className={`navbar-file-icon ${link.icon === 'TS' ? 'ts' : link.icon === '{}' ? 'json' : 'js'}`} aria-hidden="true">{link.icon}</span>
+              {link.label}
+            </a>
+          ))}
         </div>
       </div>
     </nav>

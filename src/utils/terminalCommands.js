@@ -19,7 +19,7 @@ const commands = {
     return `
       <span class="keyword">const</span> <span class="variable">developer</span> = {
         <br/>&nbsp;&nbsp;<span class="string">"name"</span>: <span class="string">"Deepti Shanbhag"</span>,
-        <br/>&nbsp;&nbsp;<span class="string">"title"</span>: <span class="string">"Graduate Engineer Trainee (P1)"</span>,
+        <br/>&nbsp;&nbsp;<span class="string">"title"</span>: <span class="string">"Engineer 2"</span>,
         <br/>&nbsp;&nbsp;<span class="string">"location"</span>: <span class="string">"Bengaluru, KA"</span>,
         <br/>&nbsp;&nbsp;<span class="string">"bio"</span>: <span class="string">"I'm a passionate web developer and AWS certified cloud practitioner. I love solving problems and turning ideas into reality through code."</span>,
         <br/>&nbsp;&nbsp;<span class="string">"interests"</span>: [<span class="string">"Web Development"</span>, <span class="string">"Machine Learning"</span>, <span class="string">"Jazz"</span>, <span class="string">"Literary Fiction"</span>]
@@ -178,5 +178,12 @@ export const handleCommand = (input) => {
   if (commands[command]) {
     return commands[command]();
   }
-  return `Command not found: ${command}. Type "help" to see available commands.`;
+  const safeCommand = command.replace(/[&<>"']/g, (character) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  }[character]));
+  return `Command not found: ${safeCommand}. Type "help" to see available commands.`;
 };

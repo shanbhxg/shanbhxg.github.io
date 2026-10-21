@@ -1,108 +1,101 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { handleCommand } from '../utils/terminalCommands';
 
 const Terminal = () => {
   const [history, setHistory] = useState([
-    { text: 'Welcome to my portfolio! Type "help" to see available commands.', type: 'system' }
+    { text: 'Welcome to my portfolio. Type "help" to list available commands.', type: 'system' },
   ]);
   const [input, setInput] = useState('');
-  const [prompt, setPrompt] = useState('visitor@portfolio:~$');
+  const [prompt] = useState('visitor@portfolio:~$');
   const terminalRef = useRef(null);
   const inputRef = useRef(null);
-
-  const executeCommand = (cmd) => {
-    // Add command to history
-    setHistory(prev => [...prev, { text: cmd, type: 'command', prompt }]);
-    
-    // Process command and get response
-    const response = handleCommand(cmd);
-    
-    // Check if it's the clear command
-    if (cmd.trim().toLowerCase() === 'clear') {
-      // Clear the terminal
-      setHistory([]);
-    } else {
-      // Add response to history
-      setHistory(prev => [...prev, { text: response, type: 'response' }]);
-    }
-    
-    // Clear input
-    setInput('');
-    
-    // Scroll to bottom
-    setTimeout(() => {
-      if (terminalRef.current) {
-        terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
+  React.useEffect(() => {
+    let active = true;
+  
+    const handleResume = async () => {
+      setInput('');
+  
+      for (let i = 1; i <= 'resume'.length; i++) {
+        if (!active) return;
+  
+        setInput('resume'.slice(0, i));
+        await new Promise((resolve) => setTimeout(resolve, 100));
       }
-    }, 100);
-  };
+    };
+  
+    window.addEventListener('terminal-resume', handleResume);
+  
+    return () => {
+      active = false;
+      window.removeEventListener('terminal-resume', handleResume);
+    };
+  }, [setInput]);
+  const executeCommand = (command) => {
+    const trimmed = command.trim();
+    if (!trimmed) return;
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      executeCommand(input);
+    if (trimmed.toLowerCase() === 'clear') {
+      setHistory([]);
+      setInput('');
+      return;
     }
+
+    setHistory((previous) => [
+      ...previous,
+      { text: trimmed, type: 'command', prompt },
+      { text: handleCommand(trimmed), type: 'response' },
+    ]);
+    setInput('');
   };
 
-  // Auto focus on the terminal input when clicked
-  const focusInput = () => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') executeCommand(input);
   };
 
-  // Scroll to bottom when history changes
+  const focusInput = () => inputRef.current?.focus();
+
   useEffect(() => {
-    if (terminalRef.current) {
-      terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
-    }
+    if (terminalRef.current) terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
   }, [history]);
 
   return (
-    <div className="terminal" onClick={focusInput}>
+    <section className="terminal" onClick={focusInput} role="region" aria-label="Interactive portfolio terminal">
       <div className="terminal-header">
-        <div className="terminal-controls">
-          <div className="terminal-control control-close"></div>
-          <div className="terminal-control control-minimize"></div>
-          <div className="terminal-control control-maximize"></div>
+        <div className="terminal-controls" aria-hidden="true">
+          <span className="terminal-control control-close" />
+          <span className="terminal-control control-minimize" />
+          <span className="terminal-control control-maximize" />
         </div>
-        <div className="terminal-title">portfolio ~ bash</div>
-        <div></div>
+        <div className="terminal-title">TERMINAL <span>·</span> portfolio — bash</div>
+        <span className="terminal-header-menu" aria-hidden="true">•••</span>
       </div>
+      <div className="terminal-session-bar"><span>bash</span><span>visitor@portfolio</span><span>×</span></div>
       <div className="terminal-body" ref={terminalRef}>
         {history.map((item, index) => (
-          <div key={index} className="terminal-line">
-            {item.type === 'command' && (
-              <span className="terminal-prompt">{item.prompt}</span>
-            )}
-            <span 
-              className={item.type === 'system' ? 'comment' : ''}
-              dangerouslySetInnerHTML={{ __html: item.text }}
-            ></span>
+          <div key={`${item.type}-${index}`} className={`terminal-line terminal-line-${item.type}`}>
+            {item.type === 'command' && <span className="terminal-prompt">{item.prompt}</span>}
+            <span className={item.type === 'system' ? 'comment' : ''}>
+              {item.type === 'response' ? <span dangerouslySetInnerHTML={{ __html: item.text }} /> : item.text}
+            </span>
           </div>
         ))}
-        <div className="terminal-line">
+        <div className="terminal-line terminal-input-line">
           <span className="terminal-prompt">{prompt}</span>
           <input
             ref={inputRef}
             type="text"
             value={input}
-            onChange={(e) => setInput(e.target.value)}
+            onChange={(event) => setInput(event.target.value)}
             onKeyDown={handleKeyDown}
-            autoFocus
-            style={{
-              background: 'transparent',
-              border: 'none',
-              color: 'var(--foreground)',
-              fontFamily: 'inherit',
-              fontSize: 'inherit',
-              width: '100%',
-              outline: 'none'
-            }}
+            aria-label="Enter a portfolio terminal command"
+            autoComplete="off"
+            spellCheck={false}
           />
+          <span className="terminal-cursor" aria-hidden="true" />
         </div>
       </div>
-    </div>
+      <div className="terminal-hint">Try <span className="keyword">help</span>, <span className="keyword">projects</span>, <span className="keyword">experience</span>, or <span className="keyword">clear</span>.</div>
+    </section>
   );
 };
 

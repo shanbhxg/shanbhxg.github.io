@@ -1,37 +1,48 @@
 import React from 'react';
 
-const calculateMonths = (startDate) => {
+const calculateMonths = (startDate, endDate = new Date()) => {
   const start = new Date(startDate);
-  const now = new Date();
-
-  const yearsDiff = now.getFullYear() - start.getFullYear();
-  const monthsDiff = now.getMonth() - start.getMonth();
-
-  return yearsDiff * 12 + monthsDiff;
+  return Math.max(0, (endDate.getFullYear() - start.getFullYear()) * 12 + endDate.getMonth() - start.getMonth());
 };
 
 const experiences = [
   {
-    title: 'Graduate Engineer Trainee',
-    company: 'Pratt and Whitney',
-    date: `Jul 2024 - Present`,
-    duration: `${calculateMonths('2024-07-01')} months`, 
+    title: 'Engineer 2 – Software Engineering',
+    company: 'Pratt & Whitney',
+    date: 'Oct 2026 - Present',
+    duration: `${calculateMonths('2026-10-01')} months`,
     description: [
-      'Collaborated with data scientists to build a VueJS website for complex data workflows, allowing users to interact meaningfully with data via drag-and-drop interfaces, various visualizations, and flowcharts.',
-      'Worked with after-market maintenance engineering team to build a full-stack application using VueJS, AWS SAM, Lambda, and API Gateway, along with creating extensive documentation using Vitepress.'
+      'Build and maintain dashboards used by repair engineers across React, Vue, Django, FastAPI, and SQL.',
+      'Integrated Ping SSO authentication and customised open-source software for secure enterprise deployment.',
+      'Diagnose production issues, deliver features, and maintain live applications.',
     ],
-    technologies: ['VueJS', 'VueFlow', 'Git', 'Electron', 'Python', 'SQL', 'Agile', 'AWS', 'Postman', 'FastAPI'],
+    technologies: ['React', 'Vue.js', 'Python', 'Django', 'FastAPI', 'SQL', 'Ping SSO'],
+  },
+  {
+    title: 'Graduate Engineer Trainee',
+    company: 'Pratt & Whitney',
+    date: 'Jul 2024 - Sep 2026',
+    duration: '2 years 3 months',
+    description: [
+      'Delivered 4+ full-stack applications with data science and aftermarket engineering teams across three regions, from requirements through testing and deployment.',
+      'Built serverless backend services with AWS SAM, Lambda, and API Gateway.',
+      'Implemented features across Python, Django, FastAPI, React, Vue, and SQL codebases.',
+      'Mentored interns in codebase onboarding, feature development, and debugging.',
+      'Designed internal communications materials and maintained the company SharePoint news and events page.',
+    ],
+    technologies: ['Python', 'React', 'Vue.js', 'SQL', 'AWS SAM', 'Lambda', 'API Gateway', 'SharePoint'],
   },
   {
     title: 'Intern',
-    company: 'Pratt and Whitney',
-    date: 'Jan 2024 - Jul 2024',
-    duration: '6 months', 
+    company: 'Pratt & Whitney',
+    date: 'Jan 2024 - Jun 2024',
+    duration: '6 months',
     description: [
-      'Developed a desktop application used by global managers, with interactive data visualizations and LDAP authentication, packaging them into executables, and managing global auto-updates via Github Releases to ensure seamless distribution and maintenance.',
-      'Developed web and desktop applications using VueJS, Electron, SQL, and ReactJS in an Agile environment.'
+      'Built an Electron desktop application used globally by 280+ managers to replace legacy management software.',
+      'Implemented LDAP authentication and automated application updates through GitHub Releases.',
+      'Created Figma wireframes and a Python executable proof of concept.',
     ],
-    technologies: ['ReactJS', 'VueJS', 'Electron', 'NodeJS', 'SQL', 'Agile'],
+    technologies: ['React', 'Vue.js', 'Electron', 'Node.js', 'SQL', 'LDAP', 'Python', 'Figma'],
   },
   {
     title: 'Teaching Assistant',
@@ -39,48 +50,54 @@ const experiences = [
     date: 'Aug 2023 - Dec 2023',
     duration: '5 months',
     description: [
-      'Assisted Prof. P Kokila for the course "Machine Intelligence" at PES University.',
-      'Developed, instructed, and evaluated course assignments for 3rd-year B.Tech. CSE students.'
+      'Developed, taught, and assessed machine learning, deep learning, and statistics assignments for 40 third-year Computer Science students.',
     ],
     technologies: ['Machine Learning', 'Deep Learning', 'Statistics'],
   },
 ];
 
-const Experience = () => {
-  return (
-    <section id="experience" className="section">
-      <div className="container">
-        <h2 className="section-title">
-          <span className="keyword">const</span> <span className="variable">experience</span>{' '}
-          <span className="operator">=</span> <span className="function">()</span>{' '}
-          <span className="operator">=&gt;</span> {'{'}
-        </h2>
-
-        <div className="experience-grid">
-          {experiences.map((exp, index) => (
-            <div key={index} className="experience-card">
-              <h3 className="experience-title">{exp.title}</h3>
-              <span className="experience-company">{exp.company}</span>
-              <span className="experience-date">{exp.date} ({exp.duration})</span>
-              <div className="experience-tags">
-                {exp.technologies.map((tech, techIndex) => (
-                  <span key={techIndex} className="experience-tag">{tech}</span>
-                ))}
-              </div>
-              <br/> 
-              <ul className="experience-description">
-                {exp.description.map((point, idx) => (
-                  <li key={idx}>{point}</li>
-                ))}
-              </ul>
-
-              
-            </div>
-          ))}
+const Experience = () => (
+  <section id="experience" className="section">
+    <div className="container">
+      <div className="file-heading">
+        <div>
+          <div className="file-path">src <span>/</span> components <span>/</span> experience.tsx</div>
+          <h2 className="file-title">Experience <span className="file-count">({experiences.length})</span></h2>
         </div>
       </div>
-    </section>
-  );
-};
+
+      <div className="terminal-output-label"><span className="terminal-prompt">›</span> work-history --verbose</div>
+      <div className="terminal-experience">
+        {experiences.map((exp, index) => (
+          <article className="terminal-experience-entry" key={exp.title}>
+            <div className="terminal-experience-index">{String(index + 1).padStart(2, '0')}</div>
+            <div className="terminal-experience-content">
+              <div className="terminal-experience-header">
+                <h3>{exp.title}</h3>
+                <span className="terminal-experience-duration">{exp.duration}</span>
+              </div>
+              <div className="terminal-experience-meta">
+                <span>{exp.company}</span>
+                <span>{exp.date}</span>
+              </div>
+              <ul className="terminal-experience-description">
+                {exp.description.map((point) => <li key={point}>{point}</li>)}
+              </ul>
+              <div className="terminal-experience-tech">
+                <span className="keyword">stack</span><span className="operator">:</span>
+                {exp.technologies.map((tech, techIndex) => (
+                  <React.Fragment key={tech}>
+                    <span className="terminal-tech-name">{tech}</span>
+                    {techIndex < exp.technologies.length - 1 && <span className="operator"> / </span>}
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 export default Experience;
