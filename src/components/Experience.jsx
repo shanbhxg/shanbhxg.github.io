@@ -1,9 +1,12 @@
 import React from 'react';
 
+
 const calculateMonths = (startDate, endDate = new Date()) => {
   const start = new Date(startDate);
-  return Math.max(0, (endDate.getFullYear() - start.getFullYear()) * 12 + endDate.getMonth() - start.getMonth());
+  const months = (endDate.getFullYear() - start.getFullYear()) * 12 + endDate.getMonth() - start.getMonth();
+  return Math.max(0, months + (endDate.getDate() >= start.getDate() ? 1 : 0));
 };
+
 
 const experiences = [
   {

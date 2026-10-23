@@ -47,7 +47,7 @@ const skillCategories = [
     title: 'Soft Skills',
     skills: [
       { name: 'Teamwork', url: 'https://en.wikipedia.org/wiki/Teamwork' },
-      { name: 'Attention to Detail', url: 'https://en.wikipedia.org/wiki/Attention_to_detail' },
+      { name: 'Attention to Detail', url: 'https://en.wikipedia.org/wiki/Attention' },
       { name: 'Leadership', url: 'https://en.wikipedia.org/wiki/Leadership' },
       { name: 'Adaptability', url: 'https://en.wikipedia.org/wiki/Adaptability' },
       { name: 'Problem-solving', url: 'https://en.wikipedia.org/wiki/Problem_solving' },

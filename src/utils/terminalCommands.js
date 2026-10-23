@@ -30,45 +30,55 @@ const commands = {
   skills: () => {
     return `
       <span class="keyword">const</span> <span class="variable">skills</span> = {
-        <br/>&nbsp;&nbsp;<span class="string">"programmingLanguages"</span>: [
-          <span class="string">"SQL"</span>, 
-          <span class="string">"Python"</span>, 
-          <span class="string">"JavaScript"</span>, 
-          <span class="string">"HTML"</span>, 
-          <span class="string">"CSS"</span>, 
-          <span class="string">"C"</span>
-        ],
-        <br/>&nbsp;&nbsp;<span class="string">"toolsAndTechnologies"</span>: [
-          <span class="string">"Git"</span>, 
-          <span class="string">"AWS"</span>, 
-          <span class="string">"Linux"</span>, 
-          <span class="string">"ReactJS"</span>, 
-          <span class="string">"NodeJS"</span>, 
-          <span class="string">"NextJS"</span>, 
-          <span class="string">"VueJS"</span>, 
-          <span class="string">"Electron"</span>, 
-          <span class="string">"Express"</span>, 
-          <span class="string">"MongoDB"</span>, 
-          <span class="string">"MySQL"</span>, 
-          <span class="string">"NumPy"</span>, 
-          <span class="string">"Pandas"</span>, 
-          <span class="string">"PyTorch"</span>, 
-          <span class="string">"Flask"</span>, 
-          <span class="string">"Figma"</span>
-          <span class="string">"Django"</span>
-        ],
         <br/>&nbsp;&nbsp;<span class="string">"languages"</span>: [
-          <span class="string">"English"</span>, 
-          <span class="string">"Hindi"</span>, 
-          <span class="string">"Kannada"</span>, 
-          <span class="string">"Konkani"</span>
+          <span class="string">"Python"</span>,
+          <span class="string">"JavaScript"</span>,
+          <span class="string">"SQL"</span>,
+          <span class="string">"C"</span>,
+          <span class="string">"HTML"</span>,
+          <span class="string">"CSS"</span>
         ],
-        <br/>&nbsp;&nbsp;<span class="string">"softSkills"</span>: [
-          <span class="string">"Teamwork"</span>, 
-          <span class="string">"Attention to Detail"</span>, 
-          <span class="string">"Leadership"</span>, 
-          <span class="string">"Adaptability"</span>, 
-          <span class="string">"Problem-solving"</span>
+        <br/>&nbsp;&nbsp;<span class="string">"frontend"</span>: [
+          <span class="string">"React"</span>,
+          <span class="string">"Vue.js"</span>,
+          <span class="string">"Next.js"</span>,
+          <span class="string">"Electron"</span>
+        ],
+        <br/>&nbsp;&nbsp;<span class="string">"backend"</span>: [
+          <span class="string">"Django"</span>,
+          <span class="string">"FastAPI"</span>,
+          <span class="string">"Node.js"</span>,
+          <span class="string">"REST APIs"</span>
+        ],
+        <br/>&nbsp;&nbsp;<span class="string">"cloudAndDevOps"</span>: [
+          <span class="string">"AWS Lambda"</span>,
+          <span class="string">"API Gateway"</span>,
+          <span class="string">"AWS SAM"</span>,
+          <span class="string">"Docker"</span>,
+          <span class="string">"Git"</span>,
+          <span class="string">"GitHub Releases"</span>
+        ],
+        <br/>&nbsp;&nbsp;<span class="string">"authentication"</span>: [
+          <span class="string">"Ping SSO"</span>,
+          <span class="string">"LDAP"</span>,
+          <span class="string">"Google OAuth"</span>,
+          <span class="string">"MSAL"</span>
+        ],
+        <br/>&nbsp;&nbsp;<span class="string">"dataAndML"</span>: [
+          <span class="string">"PostgreSQL"</span>,
+          <span class="string">"MongoDB"</span>,
+          <span class="string">"Firestore"</span>,
+          <span class="string">"Pandas"</span>,
+          <span class="string">"NumPy"</span>,
+          <span class="string">"PyTorch"</span>,
+          <span class="string">"NLP"</span>,
+          <span class="string">"BERT"</span>,
+          <span class="string">"R"</span>
+        ],
+        <br/>&nbsp;&nbsp;<span class="string">"other"</span>: [
+          <span class="string">"Power Automate Flow"</span>,
+          <span class="string">"Power Apps"</span>,
+          <span class="string">"Figma"</span>
         ]
       <br/>};
     `;
@@ -79,27 +89,27 @@ const commands = {
       <span class="keyword">const</span> <span class="variable">projects</span> = [
         <br/>&nbsp;&nbsp;{
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"name"</span>: <span class="string">"SOMNAI"</span>,
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"description"</span>: <span class="string">"Full stack dream journal website that leverages AI to analyze dreams based on symbolism and psychological theories"</span>
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"description"</span>: <span class="string">"AI-powered dream journal analysing dreams through symbolism and psychological theories."</span>,
         <br/>&nbsp;&nbsp;},
         <br/>&nbsp;&nbsp;{
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"name"</span>: <span class="string">"CROSSWRD"</span>,
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"description"</span>: <span class="string">"A Vue.js website that generates crossword puzzles with clues fetched from an API."</span>,
-        <br/>&nbsp;&nbsp;},
-        <br/>&nbsp;&nbsp;{
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"name"</span>: <span class="string">"APIDAE"</span>,
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"description"</span>: <span class="string">"Personalized job recommendation system using modified swarm optimization algorithm (ABC)."</span>,
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"name"</span>: <span class="string">"TOADSTOOL"</span>,
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"description"</span>: <span class="string">"Productivity website for tasks, habit tracking, goals, and a customisable dashboard."</span>,
         <br/>&nbsp;&nbsp;},
         <br/>&nbsp;&nbsp;{
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"name"</span>: <span class="string">"KADAMBARI"</span>,
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"description"</span>: <span class="string">"A book tracking website that lets users search for books (open library), log their reading history with notes and "shelf" into categories, and maintain a personal diary with analytics."</span>,
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"description"</span>: <span class="string">"Book tracker with Open Library search, reading logs, custom shelves, diary entries, and analytics."</span>,
         <br/>&nbsp;&nbsp;},
         <br/>&nbsp;&nbsp;{
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"name"</span>: <span class="string">"CINEMMA"</span>,
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"description"</span>: <span class="string">"A movie diary app where users can search films (tmdb), log what they’ve watched and when, and keep track of their thoughts over time (along with charts and other analytics)."</span>,
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"description"</span>: <span class="string">"Movie diary with TMDb search, watch history, personal notes, and viewing analytics."</span>,
         <br/>&nbsp;&nbsp;},
         <br/>&nbsp;&nbsp;{
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"name"</span>: <span class="string">"CJ HELPER"</span>,
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"description"</span>: <span class="string">"A virtual cork-board to help you solve Cain's Jawbone."</span>,
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"name"</span>: <span class="string">"CROSSWRD"</span>,
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"description"</span>: <span class="string">"Crossword puzzle generator built with Vue.js and a Python API for clues."</span>,
+        <br/>&nbsp;&nbsp;},
+        <br/>&nbsp;&nbsp;{
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"name"</span>: <span class="string">"APIDAE"</span>,
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"description"</span>: <span class="string">"Personalised job recommendation system using NLP, BERT, keyword extraction, and modified Artificial Bee Colony optimisation."</span>,
         <br/>&nbsp;&nbsp;}
       <br/>];
     `;
@@ -116,14 +126,20 @@ const commands = {
       <br/><span class="comment">// Feel free to get in touch! I'm always open to discussing new projects or opportunities.</span>
     `;
   },
+  
 
   experience: () => {
     return `
       <span class="keyword">const</span> <span class="variable">experience</span> = [
         <br/>&nbsp;&nbsp;{
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"position"</span>: <span class="string">"Engineer 2 - Software Engineering"</span>,
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"company"</span>: <span class="string">"Pratt and Whitney"</span>,
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"duration"</span>: <span class="string">"10/2026 - Present"</span>,
+        <br/>&nbsp;&nbsp;},
+        <br/>&nbsp;&nbsp;{
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"position"</span>: <span class="string">"Graduate Engineer Trainee"</span>,
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"company"</span>: <span class="string">"Pratt and Whitney"</span>,
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"duration"</span>: <span class="string">"07/2024 - Present"</span>,
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"duration"</span>: <span class="string">"07/2024 - 09/2026"</span>,
         <br/>&nbsp;&nbsp;},
         <br/>&nbsp;&nbsp;{
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"position"</span>: <span class="string">"Intern"</span>,
@@ -133,23 +149,12 @@ const commands = {
         <br/>&nbsp;&nbsp;{
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"position"</span>: <span class="string">"Teaching Assistant"</span>,
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"company"</span>: <span class="string">"PES University"</span>,
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"duration"</span>: <span class="string">"08/2024 - 12/2024"</span>,
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"duration"</span>: <span class="string">"08/2023 - 12/2023"</span>,
         <br/>&nbsp;&nbsp;}
       <br/>];
     `;
   },
 
-  education: () => {
-    return `
-      <span class="keyword">const</span> <span class="variable">education</span> = [
-        <br/>&nbsp;&nbsp;{
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"degree"</span>: <span class="string">"B.Tech. in Computer Science Engineering"</span>,
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"institution"</span>: <span class="string">"PES University"</span>,
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"year"</span>: <span class="number">2024</span>
-        <br/>&nbsp;&nbsp;}
-      <br/>];
-    `;
-  },
 
   clear: () => {
     return 'CLEAR_TERMINAL';
@@ -178,6 +183,7 @@ export const handleCommand = (input) => {
   if (commands[command]) {
     return commands[command]();
   }
+
   const safeCommand = command.replace(/[&<>"']/g, (character) => ({
     '&': '&amp;',
     '<': '&lt;',

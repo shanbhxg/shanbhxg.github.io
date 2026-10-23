@@ -80,7 +80,6 @@ const handleSubmit = (event) => {
                 <textarea id="message" name="message" className="form-control" value={formData.message} onChange={handleChange} required placeholder="Write your message..." />
               </div>
               <button type="submit" className="btn btn-primary">Send message <span aria-hidden="true">↗</span></button>
-              <p className="form-footnote"><span className="comment">// Form currently uses demo submission logic.</span></p>
             </form>
           </div>
 
@@ -96,7 +95,7 @@ const handleSubmit = (event) => {
                 </a>
               ))}
             </div>
-            <p className="contact-aside-note"><span className="comment">// Usually replies by email or LinkedIn.</span></p>
+            <p className="contact-aside-note"><span className="comment">// most reliably reachable via email!</span></p>
           </aside>
         </div>
       </div>

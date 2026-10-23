@@ -3,12 +3,14 @@ import About from '../components/About';
 import Skills from '../components/Skills';
 import Experience from '../components/Experience';
 import Projects from '../components/Projects';
+import Education from '../components/Education';
 import Miscellaneous from '../components/Miscellaneous';
 import Contact from '../components/Contact';
 
 const files = [
   { id: 'about', label: 'about.tsx', component: About },
   { id: 'skills', label: 'skills.tsx', component: Skills },
+  { id: 'education', label: 'education.tsx', component: Education },
   { id: 'experience', label: 'experience.tsx', component: Experience },
   { id: 'projects', label: 'projects.tsx', component: Projects },
   { id: 'miscellaneous', label: 'miscellaneous.tsx', component: Miscellaneous },

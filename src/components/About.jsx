@@ -13,7 +13,6 @@ const About = () => (
 
       <div className="about-content">
         <div className="about-copy">
-          <div className="editor-note"><span className="comment">// A little about me</span></div>
           <p>Hello! I'm <span className="variable">Deepti Shanbhag</span>, a full-stack software engineer focused on building useful, user-friendly applications.</p>
           <p>I work across front-end interfaces, backend services, internal tools, and data-driven applications. My day-to-day stack includes JavaScript, React, Vue, Python, and SQL.</p>
           <span className="comment"> // Using command{' '} <button className="command" onClick={() => window.dispatchEvent(new Event('terminal-resume'))}> resume </button>{' '} will take you to my CV as a PDF. </span>        </div>
